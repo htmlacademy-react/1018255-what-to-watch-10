@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": [
+    "target": "es2020", //что получаем на выходе
+    "lib": [ //библиотеки котрые используются, за счет этого подключаются типы
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": true, //позволяет использовать js вместе с ts (полезно когда проект переводится с js на ts)
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": true, //строгий режим для ts (например запрещает тип any)
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -20,7 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
+  "include": [ //где хранятся исходники
     "src"
   ]
 }
