@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FilmType } from '../../types/films-type';
 
 type FilmItemProps = {
   name: string,

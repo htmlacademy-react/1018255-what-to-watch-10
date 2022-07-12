@@ -19,6 +19,8 @@ function Header(props: HeaderProps): JSX.Element {
 
       {props.children}
 
+      {/* показывать везде кроме страницы SignIn + проверка на авторизация
+      добавить компонента на страницу SignIn */}
       <ul className="user-block">
         <li className="user-block__item">
           <div className="user-block__avatar">
@@ -34,7 +36,6 @@ function Header(props: HeaderProps): JSX.Element {
       {/* <div className="user-block">
         <a className="user-block__link" href="sign-in.html">Sign in</a>
       </div> */}
-
     </header>
   );
 }

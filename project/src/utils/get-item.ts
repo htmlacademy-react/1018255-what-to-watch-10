@@ -1,3 +1,7 @@
+export function getRandomArbitrary(min: number, max: number): number {
+  return +(Math.random() * (max - min) + min).toFixed(1);
+}
+
 // Получение случайного целого числа в заданном интервале. Максимум и минимум включаются
 const getRandomInt = (lower: number, upper: number): number => {
   const min = Math.ceil(lower);

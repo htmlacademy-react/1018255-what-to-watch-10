@@ -1,8 +1,8 @@
 import React from 'react';
-
 import Header from '../../components/header/header';
-import Catalog from '../../components/catalog/catalog';
-
+import PageContent from '../../components/page-content/page-content';
+import GenreItem from '../../components/genre-item/genre-item';
+import FilmsList from '../../components/films-list/films-list';
 import { FilmType, FilmsType } from '../../types/films-type';
 import { UserType } from '../../types/user-type';
 
@@ -12,7 +12,21 @@ type MainPageProps = {
   films: FilmsType,
 }
 
+function renderGenreItems(genreItem: string): JSX.Element {
+  return (
+    //активному элементу устанавливается catalog__genres-item--active
+    <GenreItem
+      genreItem={genreItem}
+      key={genreItem}
+    />
+  );
+}
+
 function MainPage({user, promoFilm, films}: MainPageProps): JSX.Element {
+  const genres = Array.from(new Set(films.map((film) => film.genre))).slice(0, 9);
+  // genres.unshift('All genres');
+  const genreItems = genres.map((genre: string) => renderGenreItems(genre));
+
   return (
     <React.Fragment>
       <section className="film-card">
@@ -57,7 +71,25 @@ function MainPage({user, promoFilm, films}: MainPageProps): JSX.Element {
         </div>
       </section>
 
-      <Catalog films={films}/>
+      <PageContent>
+        <section className="catalog">
+          <h2 className="catalog__title visually-hidden">Catalog</h2>
+
+          <ul className="catalog__genres-list">
+            <li className="catalog__genres-item catalog__genres-item--active">
+              <a className="catalog__genres-link" href='https://ru.reactjs.org/docs/getting-started.html'>All genres</a>
+            </li>
+
+            {genreItems}
+          </ul>
+
+          <FilmsList films={films}/>
+
+          <div className="catalog__more">
+            <button className="catalog__button" type="button">Show more</button>
+          </div>
+        </section>
+      </PageContent>
     </React.Fragment>
   );
 }
