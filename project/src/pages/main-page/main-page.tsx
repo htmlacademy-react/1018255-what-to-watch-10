@@ -1,34 +1,33 @@
 import React from 'react';
 import Header from '../../components/header/header';
 import PageContent from '../../components/page-content/page-content';
-import GenreItem from '../../components/genre-item/genre-item';
-import FilmsList from '../../components/films-list/films-list';
-import { FilmType, FilmsType } from '../../types/films-type';
+import Genre from '../../components/genre/genre';
+import Films from '../../components/films/films';
+import { FilmType } from '../../types/films-type';
 import { UserType } from '../../types/user-type';
+import { Settings } from '../../constants/constants';
 
 type MainPageProps = {
   user: UserType,
   promoFilm: FilmType,
-  films: FilmsType,
+  films: FilmType[],
 }
 
-function renderGenreItems(genreItem: string): JSX.Element {
+function renderGenre(genre: string): JSX.Element {
   return (
-    //активному элементу устанавливается catalog__genres-item--active
-    <GenreItem
-      genreItem={genreItem}
-      key={genreItem}
+    <Genre
+      genre={genre}
+      key={genre}
     />
   );
 }
 
 function MainPage({user, promoFilm, films}: MainPageProps): JSX.Element {
-  const genres = Array.from(new Set(films.map((film) => film.genre))).slice(0, 9);
-  // genres.unshift('All genres');
-  const genreItems = genres.map((genre: string) => renderGenreItems(genre));
+  const genres = [...new Set(films.map((film) => film.genre))].slice(0, Settings.NUMBER_OF_GENRES);
+  const genreList = genres.map((genre: string) => renderGenre(genre));
 
   return (
-    <React.Fragment>
+    <>
       <section className="film-card">
         <div className="film-card__bg">
           <img src={promoFilm.previewImage} alt={promoFilm.name} />
@@ -80,17 +79,17 @@ function MainPage({user, promoFilm, films}: MainPageProps): JSX.Element {
               <a className="catalog__genres-link" href='https://ru.reactjs.org/docs/getting-started.html'>All genres</a>
             </li>
 
-            {genreItems}
+            {genreList}
           </ul>
 
-          <FilmsList films={films}/>
+          <Films films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>
         </section>
       </PageContent>
-    </React.Fragment>
+    </>
   );
 }
 

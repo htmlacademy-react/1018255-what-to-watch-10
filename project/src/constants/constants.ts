@@ -1,4 +1,6 @@
 export const Settings = {
   NUMBER_OF_OFFERS: 20,
   NUMBER_OF_REVIEWS: 6,
+  NUMBER_OF_GENRES: 9,
+  NUMBER_OF_STARS: 10,
 };

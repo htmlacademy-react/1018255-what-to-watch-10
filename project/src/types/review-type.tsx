@@ -8,5 +8,3 @@ export type ReviewType = {
     name: string
   }
 };
-
-export type ReviewsType = ReviewType[];

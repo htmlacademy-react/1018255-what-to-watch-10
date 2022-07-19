@@ -1,12 +1,12 @@
 import React from 'react';
 
-type ReviewItemProps = {
+type ReviewProps = {
   comment: string,
   rating: number,
   name: string,
 }
 
-function ReviewItem({comment, rating, name}: ReviewItemProps): JSX.Element {
+function Review({comment, rating, name}: ReviewProps): JSX.Element {
   return (
     <div className="review">
       <blockquote className="review__quote">
@@ -23,4 +23,4 @@ function ReviewItem({comment, rating, name}: ReviewItemProps): JSX.Element {
   );
 }
 
-export default ReviewItem;
+export default Review;

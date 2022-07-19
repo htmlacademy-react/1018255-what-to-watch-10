@@ -1,11 +1,11 @@
 import React from 'react';
 
-type FilmItemProps = {
+type FilmProps = {
   name: string,
   previewImage: string,
 }
 
-function FilmItem({name, previewImage}: FilmItemProps): JSX.Element {
+function Film({name, previewImage}: FilmProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
@@ -18,4 +18,4 @@ function FilmItem({name, previewImage}: FilmItemProps): JSX.Element {
   );
 }
 
-export default FilmItem;
+export default Film;

@@ -7,7 +7,6 @@ type HeaderProps = PropsWithChildren<{
 
 function Header(props: HeaderProps): JSX.Element {
   return (
-    // у авторизованного пользователя добавляется класс user-page__head
     <header className="page-header user-page__head">
       <div className="logo">
         <a className="logo__link" href="main.html" >
@@ -19,8 +18,6 @@ function Header(props: HeaderProps): JSX.Element {
 
       {props.children}
 
-      {/* показывать везде кроме страницы SignIn + проверка на авторизация
-      добавить компонента на страницу SignIn */}
       <ul className="user-block">
         <li className="user-block__item">
           <div className="user-block__avatar">
@@ -31,11 +28,6 @@ function Header(props: HeaderProps): JSX.Element {
           <a className="user-block__link" href='https://ru.reactjs.org/docs/getting-started.html'>Sign out</a>
         </li>
       </ul>
-
-      {/* неавторизованный пользователь */}
-      {/* <div className="user-block">
-        <a className="user-block__link" href="sign-in.html">Sign in</a>
-      </div> */}
     </header>
   );
 }

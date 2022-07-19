@@ -16,12 +16,12 @@ function FilmDetails({activeFilm}: FilmDetailsProps): JSX.Element {
           <strong className="film-card__details-name">Director</strong>
           <span className="film-card__details-value">{director}</span>
         </p>
-        <p className="film-card__details-item">
+        <div className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <div className="film-card__details-value">
             {actors}
           </div>
-        </p>
+        </div>
       </div>
 
       <div className="film-card__text-col">

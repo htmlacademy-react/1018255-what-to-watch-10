@@ -1,26 +1,26 @@
 import React from 'react';
 import Header from '../../components/header/header';
 import PageContent from '../../components/page-content/page-content';
-import FilmsList from '../../components/films-list/films-list';
+import Films from '../../components/films/films';
 import FilmOverview from '../../components/film-overview/film-overview';
 import FilmDetails from '../../components/film-details/film-details';
-import ReviewsList from '../../components/reviews-list/reviews-list';
-import { FilmType, FilmsType } from '../../types/films-type';
+import Reviews from '../../components/reviews/reviews';
+import { FilmType } from '../../types/films-type';
 import { UserType } from '../../types/user-type';
-import { ReviewsType } from '../../types/reviews-type';
+import { ReviewType } from '../../types/review-type';
 
 type FilmPageProps = {
   user: UserType,
   activeFilm: FilmType,
-  films: FilmsType,
-  reviews: ReviewsType,
+  films: FilmType[],
+  reviews: ReviewType[],
 }
 
 function FilmPage({user, activeFilm, films, reviews}: FilmPageProps): JSX.Element {
   const {name, previewImage, genre, released} = activeFilm;
 
   return (
-    <React.Fragment>
+    <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
@@ -82,7 +82,7 @@ function FilmPage({user, activeFilm, films, reviews}: FilmPageProps): JSX.Elemen
 
               <FilmOverview activeFilm={activeFilm}/>
               <FilmDetails activeFilm={activeFilm}/>
-              <ReviewsList reviews={reviews}/>
+              <Reviews reviews={reviews}/>
 
             </div>
           </div>
@@ -92,12 +92,10 @@ function FilmPage({user, activeFilm, films, reviews}: FilmPageProps): JSX.Elemen
       <PageContent>
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          {/* сделать зависимость количества карточек от урл */}
-          <FilmsList films={films}/>
+          <Films films={films}/>
         </section>
       </PageContent>
-
-    </React.Fragment>
+    </>
   );
 }
 

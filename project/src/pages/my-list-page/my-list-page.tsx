@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../../components/header/header';
-import FilmsList from '../../components/films-list/films-list';
-import { FilmsType } from '../../types/films-type';
+import Films from '../../components/films/films';
+import { FilmType } from '../../types/films-type';
 import { UserType } from '../../types/user-type';
 
 type MyListPageProps = {
-  favoriteFilms: FilmsType,
+  favoriteFilms: FilmType[],
   user: UserType,
 }
 
@@ -18,7 +18,7 @@ function MyListPage({favoriteFilms, user}: MyListPageProps): JSX.Element {
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        <FilmsList films={favoriteFilms}/>
+        <Films films={favoriteFilms}/>
       </section>
 
     </div>

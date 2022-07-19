@@ -10,7 +10,7 @@ function FilmOverview({activeFilm}: FilmOverviewProps): JSX.Element {
   const actors = `${starring.join(', ')} and other`;
 
   return (
-    <React.Fragment>
+    <>
       <div className="film-rating">
         <div className="film-rating__score">{rating}</div>
         <p className="film-rating__meta">
@@ -24,7 +24,7 @@ function FilmOverview({activeFilm}: FilmOverviewProps): JSX.Element {
         <p className="film-card__director"><strong>Director: {director}</strong></p>
         <p className="film-card__starring"><strong>Starring: {actors}</strong></p>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

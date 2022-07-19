@@ -1,38 +1,28 @@
 import React from 'react';
 import Header from '../../components/header/header';
+import RatingStar from '../../components/rating-star/rating-star';
 import { UserType } from '../../types/user-type';
 import { FilmType } from '../../types/films-type';
+import { Settings } from '../../constants/constants';
 
 type AddReviewPageProps = {
   user: UserType,
   activeFilm: FilmType,
 }
 
-function renderStarsRating() {
+function renderRatingStar(value: number): JSX.Element {
   return (
-    <div className="rating__stars">
-      {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((item) => (
-        <React.Fragment key={item}>
-          <input
-            className="rating__input"
-            type="radio"
-            name="rating"
-            id={`star-${item}`}
-            value={item}
-          />
-          <label
-            className="rating__label"
-            htmlFor={`star-${item}`}
-          >
-            Rating {item}
-          </label>
-        </React.Fragment>
-      ))}
-    </div>
+    <RatingStar
+      key={`star-${value}`}
+      value={value}
+    />
   );
 }
 
 function AddReviewPage({user, activeFilm}: AddReviewPageProps): JSX.Element {
+  const values = [...Array(Settings.NUMBER_OF_STARS).keys()].map((value) => (value += 1));
+  const ratingStars = values.map((value: number) => renderRatingStar(value));
+
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
@@ -64,7 +54,9 @@ function AddReviewPage({user, activeFilm}: AddReviewPageProps): JSX.Element {
         <form action="#" className="add-review__form">
 
           <div className="rating">
-            {renderStarsRating()}
+            <div className="rating__stars">
+              {ratingStars}
+            </div>
           </div>
 
           <div className="add-review__text">

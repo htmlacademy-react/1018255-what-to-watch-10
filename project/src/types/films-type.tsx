@@ -17,5 +17,3 @@ export type FilmType = {
   released: number
   isFavorite: boolean
 };
-
-export type FilmsType = FilmType[];

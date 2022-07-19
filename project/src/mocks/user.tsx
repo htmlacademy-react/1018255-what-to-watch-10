@@ -7,5 +7,3 @@ export const user: UserType = {
   'name': 'Oliver.conner',
   'token': 'T2xpdmVyLmNvbm5lckBnbWFpbC5jb20=',
 };
-
-
