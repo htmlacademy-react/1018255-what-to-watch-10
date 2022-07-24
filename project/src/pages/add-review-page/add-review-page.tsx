@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/header';
 import RatingStar from '../../components/rating-star/rating-star';
+import ReviewBreadcrumbs from '../../components/review-breadcrumbs/review-breadcrumbs';
 import { UserType } from '../../types/user-type';
 import { FilmType } from '../../types/films-type';
 import { Settings } from '../../constants/constants';
@@ -32,17 +33,8 @@ function AddReviewPage({user, activeFilm}: AddReviewPageProps): JSX.Element {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header avatarUrl={user.avatarUrl}>
-          <nav className="breadcrumbs">
-            <ul className="breadcrumbs__list">
-              <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
-              </li>
-              <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link" href='https://ru.reactjs.org/docs/getting-started.html'>Add review</a>
-              </li>
-            </ul>
-          </nav>
+        <Header avatarUrl={user.avatarUrl} >
+          <ReviewBreadcrumbs nameActiveFilm={activeFilm.name}/>
         </Header>
 
         <div className="film-card__poster film-card__poster--small">
