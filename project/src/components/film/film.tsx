@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 type FilmProps = {
   name: string,
@@ -12,7 +13,7 @@ function Film({name, previewImage}: FilmProps): JSX.Element {
         <img src={previewImage} alt={name} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">{name}</a>
+        <Link className="small-film-card__link" to="/films/:id">{name}</Link>
       </h3>
     </article>
   );

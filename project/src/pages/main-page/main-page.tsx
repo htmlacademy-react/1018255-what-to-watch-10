@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../components/header/header';
 import PageContent from '../../components/page-content/page-content';
 import Genre from '../../components/genre/genre';
@@ -76,7 +77,7 @@ function MainPage({user, promoFilm, films}: MainPageProps): JSX.Element {
 
           <ul className="catalog__genres-list">
             <li className="catalog__genres-item catalog__genres-item--active">
-              <a className="catalog__genres-link" href='https://ru.reactjs.org/docs/getting-started.html'>All genres</a>
+              <Link className="catalog__genres-link" to="#">All genres</Link>
             </li>
 
             {genreList}

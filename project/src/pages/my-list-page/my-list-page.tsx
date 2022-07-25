@@ -10,10 +10,12 @@ type MyListPageProps = {
 }
 
 function MyListPage({favoriteFilms, user}: MyListPageProps): JSX.Element {
+  const countOfFilms = favoriteFilms.length;
+
   return (
     <div className="user-page">
       <Header avatarUrl={user.avatarUrl}>
-        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">9</span></h1>
+        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{countOfFilms}</span></h1>
       </Header>
 
       <section className="catalog">

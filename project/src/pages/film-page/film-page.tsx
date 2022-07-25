@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../components/header/header';
 import PageContent from '../../components/page-content/page-content';
 import Films from '../../components/films/films';
@@ -53,7 +54,7 @@ function FilmPage({user, activeFilm, films, reviews}: FilmPageProps): JSX.Elemen
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link className="btn film-card__button" to="/films/:id/review">Add review</Link>
               </div>
             </div>
           </div>
@@ -69,13 +70,13 @@ function FilmPage({user, activeFilm, films, reviews}: FilmPageProps): JSX.Elemen
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a className="film-nav__link" href='https://ru.reactjs.org/docs/getting-started.html'>Overview</a>
+                    <Link className="film-nav__link" to="#">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a className="film-nav__link" href='https://ru.reactjs.org/docs/getting-started.html'>Details</a>
+                    <Link className="film-nav__link" to="#">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a className="film-nav__link" href='https://ru.reactjs.org/docs/getting-started.html'>Reviews</a>
+                    <Link className="film-nav__link" to="#">Reviews</Link>
                   </li>
                 </ul>
               </nav>
